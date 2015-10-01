@@ -34,6 +34,6 @@ rayito -workers=8 -file=samples/test.txt
 
 ### Samples
 
-![Helix]()
+![Helix](https://raw.githubusercontent.com/phrozen/rayito/master/samples/helix.txt.png)
 
-![Spheres]()
+![Spheres](https://raw.githubusercontent.com/phrozen/rayito/master/samples/test.txt.png)
