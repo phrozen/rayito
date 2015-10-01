@@ -1,0 +1,40 @@
+# (optional, default 320 240) size = size of the final image
+size 2048 1536
+
+nbounces 5 
+
+# (optional, default 1) oversampling=1 no oversampling
+oversampling 4
+
+# (optional, default 60) vision = size of the visual field
+vision 60
+
+# (optional, default all span) renderslice: start_rendering_line end_rendering_line
+# renderslice note: if you use oversampling>1 it may give problems
+#renderslice 10 40
+
+
+cameraPos 5.0 5.0 5.0
+cameraLook 1.0 1.0 0.0
+cameraUp 0.0 0.0 1.0
+
+# sphere: material_number x y z radius
+sphere 3 3.0 1.5 0.8 0.8
+sphere 4 0.0 0.0 1.0 1.0
+sphere 2 1.0 3.0 0.7 0.7
+sphere 0 -1.0 1.5 0.5 0.5
+
+# plane: material normal_x normal_y normal_z distancia:
+plane 1  0.0 0.0 1.0  0.0
+
+# light: x y z  r g b  point/ambient   (rgb are in [0,1])
+light -2.0 1.0 4.0  1.0 1.0 1.0 point
+light 2.0 13.0 4.0  0.5 0.5 0.5 point
+light 0.0 0.0 4.0   0.1 0.1 0.1 ambient
+
+# material: r g b difuseCol specularCol specularD reflectionCol transmitCol IOR
+material 1.0 0.4 0.0   0.9 0.8 2.0 0.15 0.0 0.0
+material 0.8 0.8 0.9   1.0 0.0 4.0 0.1 0.0 0.0
+material 1.0 0.2 0.2   0.9 0.7 1.0 0.2 0.0 0.0
+material 0.2 1.0 0.2   0.4 0.8 2.0 0.15 0.0 1.1
+material 0.3 0.3 1.0   0.7 0.4 0.8 0.3 0.0 0.0
