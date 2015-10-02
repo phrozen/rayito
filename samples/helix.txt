@@ -1,7 +1,7 @@
 # (optional, default 320 240) size = size of the final image
 size 2048 1536
 
-nbounces 5 
+nbounces 5
 
 # (optional, default 1) oversampling=1 no oversampling
 oversampling 4
@@ -104,6 +104,7 @@ plane 1  0.0 0.0 1.0  0.0
 
 # light: x y z  r g b  point/ambient   (rgb are in [0,1])
 light -2.0 1.0 4.0  1.0 1.0 1.0 point
+light 4.0 -4.0 10.0  0.6 0.6 0.6 point
 light -2.0 1.0 4.0  0.1 0.1 0.1  ambient
 
 # material: r g b difuseCol specularCol specularD reflectionCol transmitCol IOR
