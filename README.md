@@ -27,9 +27,9 @@ go get github.com/phrozen/rayito
 After building the binary you can start to render by using some scenes in the *samples* directory or write your own.
 
 ### Usage
-Set workers to the number of threads your CPU can handle (defaults to 4).
+Set workers to the number of threads your CPU can handle (defaults to CPU Max Threads).
 ```
-rayito -workers=8 -file=samples/test.txt
+rayito -workers=8 -file="samples/scene.txt"
 ```
 
 ### Samples

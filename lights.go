@@ -1,3 +1,4 @@
+// light.go
 package main
 
 type Light struct {

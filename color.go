@@ -1,3 +1,4 @@
+// color.go
 package main
 
 import (
