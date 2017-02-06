@@ -87,48 +87,40 @@ func NewScene(sceneFilename string) *Scene {
 			data = append(data, strings.Trim(item, " "))
 		}
 
-		// fmt.Println(data)
-
 		switch word {
-		case "size":
-			scn.imgWidth, _ = strconv.Atoi(data[0])
-			scn.imgHeight, _ = strconv.Atoi(data[1])
-			scn.endline = scn.imgHeight - 1 // End rendering line
-		case "nbounces":
-			scn.traceDepth, _ = strconv.Atoi(data[0]) // n. bounces
-		case "oversampling":
-			scn.oversampling, _ = strconv.Atoi(data[0])
-		case "vision":
-			scn.visionField, _ = strconv.ParseFloat(data[0], 64)
-		case "renderslice":
-			scn.startline, _ = strconv.Atoi(data[0])
-			scn.endline, _ = strconv.Atoi(data[1])
-
-		case "cameraPos":
-			scn.cameraPos = ParseVector(data)
-		case "cameraLook":
-			scn.cameraLook = ParseVector(data)
-		case "cameraUp":
-			scn.cameraUp = ParseVector(data)
-
-		case "sphere":
-			mat, _ := strconv.Atoi(data[0])
-			rad, _ := strconv.ParseFloat(data[4], 64)
-			scn.objectList = append(scn.objectList, Sphere{mat, ParseVector(data[1:4]), rad})
-
-		case "plane":
-			mat, _ := strconv.Atoi(data[0])
-			dis, _ := strconv.ParseFloat(data[4], 64)
-			scn.objectList = append(scn.objectList, Plane{mat, ParseVector(data[1:4]), dis})
-
-		case "light":
-			light := Light{ParseVector(data[0:3]), ParseColor(data[3:6]), data[6]}
-			scn.lightList = append(scn.lightList, light)
-
-		case "material":
-			mat := ParseMaterial(data)
-			scn.materialList = append(scn.materialList, mat)
-
+			case "image_size":
+				scn.imgWidth, _ = strconv.Atoi(data[0])
+				scn.imgHeight, _ = strconv.Atoi(data[1])
+				scn.endline = scn.imgHeight - 1 // End rendering line
+			case "depth":
+				scn.traceDepth, _ = strconv.Atoi(data[0]) // n. bounces
+			case "oversampling":
+				scn.oversampling, _ = strconv.Atoi(data[0])
+			case "field_of_view":
+				scn.visionField, _ = strconv.ParseFloat(data[0], 64)
+			case "renderslice":
+				scn.startline, _ = strconv.Atoi(data[0])
+				scn.endline, _ = strconv.Atoi(data[1])
+			case "camera_position":
+				scn.cameraPos = ParseVector(data)
+			case "camera_look":
+				scn.cameraLook = ParseVector(data)
+			case "camera_up":
+				scn.cameraUp = ParseVector(data)
+			case "sphere":
+				mat, _ := strconv.Atoi(data[0])
+				rad, _ := strconv.ParseFloat(data[4], 64)
+				scn.objectList = append(scn.objectList, Sphere{mat, ParseVector(data[1:4]), rad})
+			case "plane":
+				mat, _ := strconv.Atoi(data[0])
+				dis, _ := strconv.ParseFloat(data[4], 64)
+				scn.objectList = append(scn.objectList, Plane{mat, ParseVector(data[1:4]), dis})
+			case "light":
+				light := Light{ParseVector(data[1:4]), ParseColor(data[4:7]), data[0]}
+				scn.lightList = append(scn.lightList, light)
+			case "material":
+				mat := ParseMaterial(data)
+				scn.materialList = append(scn.materialList, mat)
 		}
 		line, isPrefix, err = r.ReadLine()
 	}
@@ -136,6 +128,7 @@ func NewScene(sceneFilename string) *Scene {
 	if isPrefix {
 		panic(errors.New("buffer size to small"))
 	}
+
 	if err != io.EOF {
 		panic(err)
 	}

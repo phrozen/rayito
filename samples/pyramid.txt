@@ -1,22 +1,22 @@
 # (optional, default 320 240) size = size of the final image
-size 1024 768
+image_size 1024 768
 
-nbounces 5 
+depth 5 
 
 # (optional, default 1) oversampling=1 no oversampling
 oversampling 2
 
 # (optional, default 60) vision = size of the visual field
-vision 60
+field_of_view 60
 
 # (optional, default all span) renderslice: start_rendering_line end_rendering_line
 # renderslice note: if you use oversampling>1 it may give problems
 #renderslice 10 40
 
 
-cameraPos 5.0 5.0 5.0
-cameraLook -1 -1 -1
-cameraUp 0.0 0.0 1.0
+camera_position 5.0 5.0 5.0
+camera_look -1 -1 -1
+camera_up 0.0 0.0 1.0
 
 # sphere: material_number x y z radius
 sphere 0 0.0 1.1547 1.0 1.0

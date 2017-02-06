@@ -1,0 +1,42 @@
+# Dimensiones de la imagen(x,y) utilizaremos alto = ancho para una imagen cuadrada.
+# Cabe mencionar que mientras más grande sea, más tiempo tardará el proceso.
+image_size 512 512
+
+# Campo de Visión, 60° de apertura de cámara es el predeterminado (opcional)
+field_of_view 45
+
+# Sobremuestreo (1 = no hay sobre muestreo)
+oversampling 4
+
+# Profundidad de trazado
+depth 5
+
+# Variables de la cámara todas son: vector(x y z)
+camera_position 5.0 5.0 5.0
+
+# La cámara estará viendo hacia el origen
+camera_look 0.0 0.0 0.0
+
+# El vector de rotación, define que “arriba” será el eje y
+camera_up -1.0 1.0 -1.0
+
+# material: color(r g b) diffuse specular shininess reflect transmit IOR
+material 1.0 0.0 0.0 0.5 0.5 5.0 0.6 0.0 0.0
+material 0.0 1.0 0.0 0.5 0.5 50.0 0.0 0.7 1.1
+material 0.0 0.0 1.0 1.0 1.0 5.0 0.0 0.0 0.0
+
+# sphere: material center(x y z) radius
+# Todas nuestras esferas tendrán radio 1.0 colocaremos una en cada cuadrante XZ
+sphere 0 -1.0 0.0  1.0 1.0
+sphere 1  1.0 0.0  1.0 1.0
+sphere 1 -1.0 0.0 -1.0 1.0
+sphere 0  1.0 0.0 -1.0 1.0
+
+# plane: material normal(x y z) distancia
+# Nuestro plano coincidirá con el plano coordenado XZ
+plane 2 0.0 1.0 0.0 0.0
+
+# Agregamos luces a la escena, la posición de la luz ambiental es irrelevante
+# light: type, position(x, y, z), color(r, g, b)
+light ambient 0.0 0.0 0.0 0.1 0.1 0.1
+light point 5.0 5.0 15.0 1.0 1.0 1.0
