@@ -39,7 +39,7 @@ func NewScene(sceneFilename string) *Scene {
 	scn := new(Scene)
 	// defaults
 	scn.imgWidth = 320
-	scn.imgHeight = 200
+	scn.imgHeight = 240
 
 	scn.traceDepth = 3   // bounces
 	scn.oversampling = 1 // no oversampling
@@ -131,6 +131,10 @@ func NewScene(sceneFilename string) *Scene {
 
 	if err != io.EOF {
 		panic(err)
+	}
+
+	if scn.cameraUp == (Vector{}) {
+		scn.cameraUp = scn.cameraLook.Cross(Vector{0.0, 0.0, 1.0}).Cross(scn.cameraLook)
 	}
 
 	scn.image = image.NewRGBA(image.Rect(0, 0, scn.imgWidth, scn.imgHeight))

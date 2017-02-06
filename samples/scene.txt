@@ -1,0 +1,38 @@
+# scene.txt
+# image_size: width height (default 320x240)
+image_size 2048 1536
+
+# trace depth: int (default 3)
+depth 5
+
+# oversampling: int (default 1 = no oversampling)
+oversampling 4
+
+# field_of_view: int (default 60°)
+field_of_view 55
+
+# camera: vector(x y z)
+camera_position 5.0 5.0 5.0
+camera_look 1.0 1.0 0.0
+camera_up 0.0 0.0 1.0
+
+# sphere: material_index center(x y z) radius
+sphere 3 3.0 1.5 0.8 0.8
+sphere 4 0.0 0.0 1.0 1.0
+sphere 2 1.0 3.0 0.7 0.7
+sphere 0 -1.0 1.5 0.5 0.5
+
+# plane: material_index normal(x y z) distance
+plane 1 0.0 0.0 1.0  0.0
+
+# light: type position(x y z) color(r g b)
+light point -2.0 1.0 4.0 1.0 1.0 1.0 
+light point 2.0 13.0 4.0 0.5 0.5 0.5 
+light ambient 0.0 0.0 0.0 0.1 0.1 0.1 
+
+# material: color(r g b) diffuse specular shininess reflect transmit ior
+material 1.0 0.4 0.0 0.9 0.8 2.0 0.15 0.0 0.0
+material 0.8 0.8 0.9 1.0 0.0 4.0 0.1 0.0 0.0
+material 1.0 0.2 0.2 0.9 0.7 1.0 0.2 0.0 0.0
+material 0.2 1.0 0.2 0.4 0.8 2.0 0.15 0.0 1.1
+material 0.3 0.3 1.0 0.7 0.4 0.8 0.3 0.0 0.0

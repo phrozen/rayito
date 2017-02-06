@@ -103,9 +103,9 @@ sphere 2 7.6 1.60521 3.19661  0.35
 plane 1 0.0 0.0 1.0  0.0
 
 # light: x y z  r g b  point/ambient   (rgb are in [0,1])
-light -2.0 1.0 4.0  1.0 1.0 1.0 point
-light 4.0 -4.0 10.0  0.6 0.6 0.6 point
-light -2.0 1.0 4.0  0.1 0.1 0.1  ambient
+light point -2.0 1.0 4.0  1.0 1.0 1.0
+light point 4.0 -4.0 10.0  0.6 0.6 0.6
+light ambient -2.0 1.0 4.0  0.1 0.1 0.1
 
 # material: r g b difuseCol specularCol specularD reflectionCol transmitCol IOR
 material 0.3 0.3 1.0 0.7 0.4 0.8 0.3 0.0 0.0
